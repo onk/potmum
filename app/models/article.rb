@@ -19,6 +19,9 @@
 #
 
 class Article < ApplicationRecord
+  include Boffin::Trackable
+  boffin.hit_types = [:views, :stocks]
+
   belongs_to :user
   belongs_to :newest_revision, class_name: 'Revision', optional: true
   has_many :revisions, -> {

@@ -13,7 +13,7 @@
             | 最近のコメント
       .uk-panel.uk-panel-box
         - if @articles
-          = render('/articles/list', articles: @articles)
+          = render('/articles/list', articles: @articles, paginated_article_ids: @paginated_article_ids)
         - if @comments
           = render('/comments/list', comments: @comments, mode: :view)
 

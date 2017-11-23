@@ -32,6 +32,7 @@ gem 'slack-api'
 gem 'diffy'
 gem 'kaminari'
 gem 'ransack'
+gem 'boffin'
 
 gem 'carrierwave'
 gem 'carrierwave-aws'

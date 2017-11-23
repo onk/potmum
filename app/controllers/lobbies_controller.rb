@@ -21,7 +21,10 @@ class LobbiesController < ApplicationController
   # 人気順
   def popular
     @mode = :popular
-    @articles = Article.popular.includes(:user, :tags).page(@page)
+    article_ids = Article.top_ids({ stocks: 2, views: 1 }, months: 1)
+    @paginated_article_ids = Kaminari.paginate_array(article_ids).page(@page)
+    # If article is changed to draft, article_ids includes articles that should not be displayed.
+    @articles = Article.public_item.where(id: @paginated_article_ids)
     render :root
   end
 

@@ -21,6 +21,7 @@ class TagsController < ApplicationController
   # GET /tags/:content/popular
   # タグ検索結果（人気順）
   def popular
+    # TODO: タグにも人気記事あったの……。
     @mode = :popular
     @articles = @tag.articles.popular.includes(:user, :tags).page(@page)
     render :show

@@ -1,3 +1,4 @@
+- paginated_article_ids ||= nil
 - if articles.length > 0
   ul.article-list
     - articles.each do |article|
@@ -35,7 +36,7 @@
             |&nbsp;
             = article.comment_count
 
-  = paginate articles
+  = paginate(paginated_article_ids || articles)
 
 - else
   br
